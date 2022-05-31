@@ -1,0 +1,74 @@
+<! DOCTYPE=html>
+	<head>
+		<title>AUTO COMPLETE FORM</title>
+
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<style>
+	#zip1,#si{display:block;width: 200px;}
+#shipzip1,#bn{display:block;width: 200px;}
+input:focus{background-color:#dfefdc;}
+body{background-image:url("https://st2.depositphotos.com/1000128/7179/i/600/depositphotos_71798629-stock-photo-global-shipping-concept.jpg") ;
+ackground-attachment: fixed;
+  background-size: cover;background-blend-mode: screen;}
+  </style>
+<script type="text/javascript">
+	function my_funct()
+	{
+		var prevzip=document.getElementById('zip1');
+		var prevsi=document.getElementById('si');
+		var our_box=document.getElementById('checkbox1');
+		var newzip=document.getElementById('shipzip1');
+		var newsi=document.getElementById('bn');
+		
+		if(our_box.checked)
+		{
+			newzip.value=prevzip.value;
+			newsi.value=prevsi.value;
+
+
+		}
+		else
+		{
+			newzip.value="";
+			newsi.value="";
+			newzip.removeAttribute('required');
+			newsi.removeAttribute('required');
+		}
+	}
+	function my_new_function()
+	{
+		var prevzip=document.getElementById('zip1');
+		var prevsi=document.getElementById('si');
+		var our_box=document.getElementById('checkbox1');
+		var newzip=document.getElementById('shipzip1');
+		var newsi=document.getElementById('bn');
+		if(newzip.value!=prevzip.value || newsi.value!=prevsi.value )
+		{
+			
+			alert("please don't change anything in your billing information if you selected the checkbox");
+			return false;
+		}
+	}
+	</script>
+	</head>
+	<body>
+		<form>
+			<fieldset>
+
+				<legend><h2>SHIPPING INFO</h2></legend>
+				<label for="zip1">Enter zip code</label>
+				<input id="zip1" name="anything" type="text" required pattern=[0-9]{5}><br/>
+				<label for="si">enter shipping name</label>
+				<input id="si" name="anything2" type="text" required><br/>
+			</fieldset>
+			<label for="checkbox1">IS THE BILLING INFO THE SAME</label>
+			<input id="checkbox1" type="checkbox" name="anything5" onclick="my_funct()">
+				<fieldset>
+					<legend><h2>BILLING INFO<h2></legend>
+					
+					
+					<label for="shipzip1">enter zip code</label>
+					<input id="shipzip1" name="anything4" type="text" required>
+				<label for="bn">enter name</label>
+					<input id="bn" type="text" name="anything3" required></fieldset>
+					<input type="submit" value="click to submit" onclick="return my_new_function()"></form>
